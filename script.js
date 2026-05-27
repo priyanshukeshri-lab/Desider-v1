@@ -1,14 +1,14 @@
 let myData = [];
 
 let addBtn = document.getElementById('addButton');
-let mainInput = document.getElementById('mainInputText');
-let deciBtn = document.getElementById('disider');
+let input = document.getElementById('mainInputText');
+let deciBtn = document.getElementById('disiderButton');
 
 addBtn.addEventListener("click",(p)=>{
      inputarray();
 });
 
-mainInput.addEventListener("keydown", (event) => {
+input.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         inputarray();
     }
@@ -21,7 +21,7 @@ deciBtn.addEventListener("click",(r)=>{
 })
 
 function inputarray(){
-   let val = mainInput.value;
+   let val = input.value;
      if (val.trim() !== "") {
         myData.push(val);
         console.log("Current Array:", myData);
@@ -29,3 +29,4 @@ function inputarray(){
         console.log("input not found");
      }
 }
+
