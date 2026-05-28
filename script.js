@@ -38,7 +38,7 @@ function inputarray(){
         myData.push(val);
         renderChoices();
         val = "";
-        console.log("Current Array:", myData);
+        // console.log("Current Array:", myData);
      } else{
         console.log("input not found");
      }  
