@@ -307,3 +307,179 @@ body{
     }
 
 }
+ 
+/* gpt help result box*/
+
+#resultBox{
+
+    position: relative;
+
+    margin-top: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #faf5ff,
+        #f3e8ff
+    );
+
+    border-radius: 28px;
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    display: none;
+
+    animation: resultPop 0.4s ease;
+}
+
+.result-subtitle{
+
+    color: #8b5cf6;
+
+    font-size: 1rem;
+
+    margin-bottom: 15px;
+}
+
+#resultText{
+
+    font-size: 4rem;
+
+    color: #7c3aed;
+
+    font-weight: bold;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 25px;
+}
+
+#rerollButton{
+
+    width: 60px;
+    height: 60px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    font-size: 1.4rem;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.08);
+
+    transition: 0.2s;
+}
+
+#rerollButton:hover{
+
+    transform:
+        rotate(90deg)
+        scale(1.08);
+}
+
+/*FLOATING SPARKLES*/
+
+.sparkle{
+
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    animation:
+        floatSparkle 3s infinite ease-in-out;
+}
+
+.sparkle1{
+    background: #f9a8d4;
+
+    top: 30%;
+    left: 10%;
+
+    animation-delay: 0s;
+}
+
+.sparkle2{
+    background: #fde68a;
+
+    top: 20%;
+    right: 15%;
+
+    animation-delay: 1s;
+}
+
+.sparkle3{
+    background: #c084fc;
+
+    bottom: 25%;
+    left: 20%;
+
+    animation-delay: 2s;
+}
+
+.sparkle4{
+    background: #a855f7;
+
+    bottom: 20%;
+    right: 20%;
+
+    animation-delay: 0.5s;
+}
+
+/*animation*/
+
+@keyframes floatSparkle{
+
+    0%{
+        transform:
+            translateY(0px)
+            scale(1);
+
+        opacity: 0.7;
+    }
+
+    50%{
+        transform:
+            translateY(-15px)
+            scale(1.3);
+
+        opacity: 1;
+    }
+
+    100%{
+        transform:
+            translateY(0px)
+            scale(1);
+
+        opacity: 0.7;
+    }
+}
+
+@keyframes resultPop{
+
+    from{
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.95);
+    }
+
+    to{
+        opacity: 1;
+
+        transform:
+            translateY(0px)
+            scale(1);
+    }
+}

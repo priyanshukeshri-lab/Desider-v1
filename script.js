@@ -15,15 +15,22 @@ input.addEventListener("keydown", (event) => {
     }
 });
 
-deciBtn.addEventListener("click",(r)=>{
-   console.log("\ntotal number of element you have entered %d",myData.length);
-   if(myData.length === 0){
-    console.log("No choices available");
-    return;
-   }
-   const randomItem = myData[Math.floor(Math.random() * myData.length)];
-   console.log("your item that we decided is %s", randomItem);
-})
+deciBtn.addEventListener("click", () => {
+
+    if(myData.length === 0){
+        return;
+    }
+
+    const randomItem =
+        myData[Math.floor(Math.random() * myData.length)];
+
+    document.getElementById("resultText").textContent =
+        randomItem;
+
+    document.getElementById("resultBox").style.display =
+        "block";
+
+});
 
 function inputarray(){
    let val = input.value;

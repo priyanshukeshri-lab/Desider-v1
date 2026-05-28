@@ -8,18 +8,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="Header">
-        <h1>Disider</h1>
-        <p>This page will help you to choose between equally value options</p>
+    <div class="main-container">
+        <div class="Header">
+            <h1>Disider</h1>
+            <p>Add your options and late fate deside</p>
+        </div>
+        <div class="main">
+            <input type="text" id="mainInputText" placeholder="Enter your options">
+            <button id="addButton">+</button>
+        </div>
+        <div id="choice-container"></div>
+        <button id="disiderButton">pick one</button>
+        <div id="resultBox">
+
+        <div class="sparkle sparkle1"></div>
+        <div class="sparkle sparkle2"></div>
+        <div class="sparkle sparkle3"></div>
+        <div class="sparkle sparkle4"></div>
+
+        <p class="result-subtitle">
+            And the choice is...
+        </p>
+
+        <h2 id="resultText">
+            Burger
+        </h2>
+
+        <button id="rerollButton">
+            ⟲
+        </button>
+
+</div>
     </div>
-    <hr>
-    <div class="main">
-        Enter your options <input type="text" id="mainInputText">
-        <button id="addButton">+</button>
-    </div>
-    <hr>
-    <div id="choice-container"></div>
-    <button id="disiderButton">pick one</button>
     <script src="script.js"></script>
 </body>
 </html>
