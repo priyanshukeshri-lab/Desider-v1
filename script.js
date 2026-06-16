@@ -1,6 +1,7 @@
 let savedChoices = localStorage.getItem("choices");
 let myData = savedChoices ? JSON.parse(savedChoices) : [];
 
+
 let addBtn = document.getElementById('addButton');
 let input = document.getElementById('mainInputText');
 let deciBtn = document.getElementById('disiderButton');
@@ -31,6 +32,7 @@ deciBtn.addEventListener("click", () => {
 
     document.getElementById("resultBox").style.display =
         "block";
+    document.getElementById("disiderButton").innerHTML = "re-roll";
 
 });
 
@@ -45,6 +47,10 @@ clearBtn.addEventListener("click", () => {
         localStorage.removeItem("choices");
 
         renderChoices();
+
+        document.getElementById("resultBox").style.display ="none";
+
+        document.getElementById("disiderButton").innerHTML = "pick one";
 
     }
 
