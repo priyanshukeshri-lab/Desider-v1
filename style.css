@@ -236,7 +236,7 @@ body{
 
     background: #ef4444;
 
-    color: white;
+    color: rgb(0, 0, 0);
 
     font-size: 1rem;
 
@@ -357,7 +357,7 @@ body{
     margin-bottom: 25px;
 }
 
-#rerollButton{
+#clearButton{
 
     width: 60px;
     height: 60px;
@@ -378,7 +378,7 @@ body{
     transition: 0.2s;
 }
 
-#rerollButton:hover{
+#clearButton:hover{
 
     transform:
         rotate(90deg)
