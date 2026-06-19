@@ -1,75 +1,84 @@
 let savedChoices = localStorage.getItem("choices");
 let myData = savedChoices ? JSON.parse(savedChoices) : [];
 
-
-let addBtn = document.getElementById('addButton');
-let input = document.getElementById('mainInputText');
-let deciBtn = document.getElementById('disiderButton');
+let addBtn = document.getElementById("addButton");
+let input = document.getElementById("mainInputText");
+let deciBtn = document.getElementById("disiderButton");
 let choiceContainer = document.getElementById("choice-container");
 let clearBtn = document.getElementById("clearButton");
+let resultBox = document.getElementById("resultBox");
+let resultText = document.getElementById("resultText");
 
-addBtn.addEventListener("click",(p)=>{
-     inputarray();
+// ---------- Event Listeners ----------
+
+addBtn.addEventListener("click", () => {
+    inputArray();
 });
 
 input.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-        inputarray();
+        inputArray();
     }
 });
 
 deciBtn.addEventListener("click", () => {
 
-    if(myData.length === 0){
+    if (myData.length === 0) {
+        alert("Add some choices first!");
         return;
     }
 
     const randomItem =
         myData[Math.floor(Math.random() * myData.length)];
 
-    document.getElementById("resultText").textContent =
-        randomItem;
+    resultText.textContent = randomItem;
 
-    document.getElementById("resultBox").style.display =
-        "block";
-    document.getElementById("disiderButton").innerHTML = "re-roll";
+    resultBox.style.display = "block";
 
+    deciBtn.textContent = "Re-roll";
 });
 
 clearBtn.addEventListener("click", () => {
 
     let confirmDelete = confirm("Remove all choices?");
 
-    if(confirmDelete){
+    if (!confirmDelete) return;
 
-        myData = [];
+    myData = [];
 
-        localStorage.removeItem("choices");
+    localStorage.removeItem("choices");
 
-        renderChoices();
+    renderChoices();
 
-        document.getElementById("resultBox").style.display ="none";
+    resultBox.style.display = "none";
 
-        document.getElementById("disiderButton").innerHTML = "pick one";
-
-    }
-
+    deciBtn.textContent = "Pick One";
 });
 
-function inputarray(){
-   let val = input.value;
-     if (val.trim() !== "") {
-        myData.push(val);
-        localStorage.setItem("choices", JSON.stringify(myData));
-        renderChoices();
-        val = "";
-        // console.log("Current Array:", myData);
-     } else{
-        console.log("input not found");
-     }  
+// ---------- Functions ----------
+
+function inputArray() {
+
+    let val = input.value.trim();
+
+    if (val === "") {
+        console.log("Input not found");
+        return;
+    }
+
+    myData.push(val);
+
+    localStorage.setItem(
+        "choices",
+        JSON.stringify(myData)
+    );
+
+    renderChoices();
+
+    input.value = "";
 }
 
-function renderChoices(){
+function renderChoices() {
 
     choiceContainer.innerHTML = "";
 
@@ -85,15 +94,31 @@ function renderChoices(){
         `;
 
         choiceContainer.appendChild(chip);
-
     });
 
 }
 
-function removeChoice(index){
+function removeChoice(index) {
 
     myData.splice(index, 1);
-    localStorage.setItem("choices", JSON.stringify(myData));
+
+    localStorage.setItem(
+        "choices",
+        JSON.stringify(myData)
+    );
+
     renderChoices();
 
+    if (myData.length === 0) {
+
+        resultBox.style.display = "none";
+
+        deciBtn.textContent = "Pick One";
+    }
 }
+
+// ---------- Initial Page Setup ----------
+
+renderChoices();
+
+resultBox.style.display = "none";
