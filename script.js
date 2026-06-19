@@ -13,11 +13,13 @@ let resultText = document.getElementById("resultText");
 
 addBtn.addEventListener("click", () => {
     inputArray();
+    input.value = "";
 });
 
 input.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         inputArray();
+        input.value = "";
     }
 });
 
