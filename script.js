@@ -66,6 +66,12 @@ function inputArray() {
         return;
     }
 
+    if (myData.includes(val)) {
+    alert("Choice already exists!");
+    input.value = "";
+    return;
+}
+
     myData.push(val);
 
     localStorage.setItem(
