@@ -1,4 +1,4 @@
-# 🎲 Disider
+# 🎲 Disider-v1
 
 Disider is a simple web application that helps you make a decision when you have multiple equally good options.
 
@@ -68,7 +68,7 @@ No information is sent to any server.
 Clone the repository:
 
 ```bash
-git clone https://github.com/priyanshukeshri-lab/Desider.git
+git clone https://github.com/priyanshukeshri-lab/Desider-v1.git
 ```
 
 Open the project folder and simply open:
